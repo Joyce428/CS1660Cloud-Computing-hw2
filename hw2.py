@@ -4,8 +4,8 @@ import csv
 try:
     s3 = boto3.resource('s3',
         region_name='us-east-1',
-        aws_access_key_id='AKIA5TYBSWOTCPVRWZU2',
-        aws_secret_access_key='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'
+        aws_access_key_id=MY_ACCESS_KEY,
+        aws_secret_access_key=MY_SECRET_KEY
     )
 except:
     print("this may already exist")
@@ -29,8 +29,8 @@ s3.Object('cloud-hw2', 'test.txt').Acl().put(ACL='public-read')
 # Firstly, creat a DB
 dyndb = boto3.resource('dynamodb',
     region_name='us-east-1',
-    aws_access_key_id='AKIA5TYBSWOTCPVRWZU2',
-    aws_secret_access_key='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')
+    aws_access_key_id=MY_ACCESS_KEY,
+    aws_secret_access_key=MY_SECRET_KEY)
 
 try:
  table = dyndb.create_table(
